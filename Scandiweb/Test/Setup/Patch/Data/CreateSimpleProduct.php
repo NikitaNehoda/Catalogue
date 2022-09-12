@@ -65,17 +65,52 @@ class CreateSimpleProduct implements DataPatchInterface
      */
     protected CategoryLinkManagementInterface $categoryLink;
 
+    /**
+     * @var array
+     */
     protected array $sourceItems = [];
 
+        
+    /**
+     * __construct
+     * @return void
+     */
     public function __construct(
+        /**
+         * @var ModuleDataSetupInterface $setup
+         */
         ModuleDataSetupInterface $setup,
+        /**
+         * @var ProductInterfaceFactory $productInterfaceFactory
+         */
         ProductInterfaceFactory $productInterfaceFactory,
+        /**
+         * @var ProductRepositoryInterface $productRepository
+         */
         ProductRepositoryInterface $productRepository,
+        /**
+         * @var State $appState
+         */
         State $appState,
+        /**
+         * @var StoreManagerInterface $storeManager
+         */
         StoreManagerInterface $storeManager,
+        /**
+         * @var EavSetup $eavSetup
+         */
         EavSetup $eavSetup,
+        /**
+         * @var SourceItemInterfaceFactory $sourceItemFactory
+         */
         SourceItemInterfaceFactory $sourceItemFactory,
+        /**
+         * @var SourceItemsSaveInterface $sourceItemsSaveInterface
+         */
         SourceItemsSaveInterface $sourceItemsSaveInterface,
+        /**
+         * @var CategoryLinkManagementInterface $categoryLink
+         */
         CategoryLinkManagementInterface $categoryLink
     ) {
         $this->appState = $appState;
@@ -92,15 +127,15 @@ class CreateSimpleProduct implements DataPatchInterface
     /**
      * @return void
      */
-    public function apply()
+    public function apply(): void
     {
         $this->appState->emulateAreaCode('adminhtml', [$this, 'execute']);
     }
 
     /**
      * @return void
-     */
-    public function execute()
+     */    
+    public function execute(): void
     {
         $product = $this->productInterfaceFactory->create();
 
@@ -144,7 +179,7 @@ class CreateSimpleProduct implements DataPatchInterface
     /**
      * @return array
      */
-    public function getAliases()
+    public function getAliases(): array
     {
         return [];
     }
@@ -152,7 +187,7 @@ class CreateSimpleProduct implements DataPatchInterface
     /**
      * @return array
      */
-    public static function getDependencies()
+    public static function getDependencies(): array
     {
         return [];
     }
