@@ -72,45 +72,25 @@ class CreateSimpleProduct implements DataPatchInterface
 
         
     /**
-     * __construct
-     * @return void
+     * @param ModuleDataSetupInterface $setup
+     * @param ProductInterfaceFactory $productInterfaceFactory
+     * @param ProductRepositoryInterface $productRepository
+     * @param State $appState
+     * @param StoreManagerInterface $storeManager
+     * @param EavSetup $eavSetup
+     * @param SourceItemInterfaceFactory $sourceItemFactory
+     * @param SourceItemsSaveInterface $sourceItemsSaveInterface
+     * @param CategoryLinkManagementInterface $categoryLink
      */
     public function __construct(
-        /**
-         * @var ModuleDataSetupInterface $setup
-         */
         ModuleDataSetupInterface $setup,
-        /**
-         * @var ProductInterfaceFactory $productInterfaceFactory
-         */
         ProductInterfaceFactory $productInterfaceFactory,
-        /**
-         * @var ProductRepositoryInterface $productRepository
-         */
         ProductRepositoryInterface $productRepository,
-        /**
-         * @var State $appState
-         */
         State $appState,
-        /**
-         * @var StoreManagerInterface $storeManager
-         */
         StoreManagerInterface $storeManager,
-        /**
-         * @var EavSetup $eavSetup
-         */
         EavSetup $eavSetup,
-        /**
-         * @var SourceItemInterfaceFactory $sourceItemFactory
-         */
         SourceItemInterfaceFactory $sourceItemFactory,
-        /**
-         * @var SourceItemsSaveInterface $sourceItemsSaveInterface
-         */
         SourceItemsSaveInterface $sourceItemsSaveInterface,
-        /**
-         * @var CategoryLinkManagementInterface $categoryLink
-         */
         CategoryLinkManagementInterface $categoryLink
     ) {
         $this->appState = $appState;
